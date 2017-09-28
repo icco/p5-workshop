@@ -1,7 +1,8 @@
-var yCoords = [0, 0, 0, 0, 0, 0, 0, 0];
-var xCoords = [0, 50, 100, 150, 200, 250, 300, 350];
-var speeds = [ ];
-var count = 8;
+var yCoord = 0;
+var rectW = 50;
+var r;
+var g;
+var b;
 
 /** 
 You always need a setup function in p5.js.
@@ -10,29 +11,10 @@ load of your sketch.
 **/
 function setup() {
   createCanvas(800, 600);
-  // R, G, B or Grey
-  //background(120, 0, 148);
   background(128, 100);
-  speeds = [
-    random(1, 15),
-    random(1, 15),
-    random(1, 15),
-    random(1, 15),
-    random(1, 15),
-    random(1, 15),
-    random(1, 15),
-    random(1, 15)
-  ];
-  xCoords = [
-    width / 8,
-    width / 8,
-    width / 8,
-    width / 8,
-    width / 8,
-    width / 8,
-    width / 8,
-    width / 8
-  ]
+  r = random(255);
+  g = random(255);
+  b = random(255);
 }
 
 /** 
