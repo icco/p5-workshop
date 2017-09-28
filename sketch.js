@@ -17,9 +17,12 @@ in the background. You can think of this function as
 your primary animation loop––each "frame" of your sketch.
 **/
 function draw() {
-  background(128, 100);
-  noFill();
-  strokeWeight(5);
-  stroke(0, 20, 0);
-  ellipse(mouseX, mouseY, 100);
+  if (mouseIsPressed) {
+    var r = random(0, 255);
+    var g = random(0, 255);
+    var b = random(0, 255);
+    background(r, g, b);
+  }
+  fill(120, 0, 0, 200);
+  rect(width/2 - 50, height/2 - mouseY/2, 100, mouseY);
 }
