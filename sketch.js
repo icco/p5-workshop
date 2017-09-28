@@ -8,7 +8,7 @@ function setup() {
   background(0);
   centerX = width / 2;
   centerY = height / 2;
-  radius = height / 2;
+  radius = height / 10;
   angleMode(DEGREES);
 }
 
@@ -23,9 +23,9 @@ function draw() {
     curveVertex(x, y);
   }
   endShape();
-  radius -= 0.6
+  radius += 1
 
-  if (radius <= 0) {
+  if (radius >= height) {
     noLoop();
   }
 }
