@@ -1,3 +1,8 @@
+var yCoords = [0, 0, 0, 0, 0, 0, 0, 0];
+var xCoords = [0, 50, 100, 150, 200, 250, 300, 350];
+var speeds = [ ];
+var count = 8;
+
 /** 
 You always need a setup function in p5.js.
 This gets applied just once upon the initial
@@ -8,6 +13,26 @@ function setup() {
   // R, G, B or Grey
   //background(120, 0, 148);
   background(128, 100);
+  speeds = [
+    random(1, 15),
+    random(1, 15),
+    random(1, 15),
+    random(1, 15),
+    random(1, 15),
+    random(1, 15),
+    random(1, 15),
+    random(1, 15)
+  ];
+  xCoords = [
+    width / 8,
+    width / 8,
+    width / 8,
+    width / 8,
+    width / 8,
+    width / 8,
+    width / 8,
+    width / 8
+  ]
 }
 
 /** 
@@ -17,12 +42,10 @@ in the background. You can think of this function as
 your primary animation loop––each "frame" of your sketch.
 **/
 function draw() {
-  if (mouseIsPressed) {
-    var r = random(0, 255);
-    var g = random(0, 255);
-    var b = random(0, 255);
-    background(r, g, b);
+  fill(170);
+  for (var n = 0; n < count; n++) {
+    rect(xCoords[n] * n, yCoords[n], 50, 50);
+    yCoords[n] = (yCoords[n] + speeds[n]) % height;
   }
-  fill(120, 0, 0, 200);
-  rect(width/2 - 50, height/2 - mouseY/2, 100, mouseY);
+  background(128, 100);
 }
