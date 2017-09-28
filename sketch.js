@@ -17,18 +17,9 @@ in the background. You can think of this function as
 your primary animation loop––each "frame" of your sketch.
 **/
 function draw() {
-  // x,y start -> x,y end
-  //line(10, 20, 120, 250)
-  
-
+  background(128, 100);
   noFill();
-
-  // draw a circle
-  // x, y, width, height
-  ellipse(width/2, height/2, 200, 200)
-
-  fill(20, 30, 40);
-  stroke(5);
-
-  ellipse(width/4, height/4, 20, 20)
+  strokeWeight(5);
+  stroke(0, 20, 0);
+  ellipse(mouseX, mouseY, 100);
 }
