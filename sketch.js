@@ -1,33 +1,31 @@
-var yCoord = 0;
-var rectW = 50;
-var r;
-var g;
-var b;
+var centerX;
+var centerY;
+var radius;
+var totalDegrees = 365;
 
-/** 
-You always need a setup function in p5.js.
-This gets applied just once upon the initial
-load of your sketch.
-**/
 function setup() {
-  createCanvas(800, 600);
-  background(128, 100);
-  r = random(255);
-  g = random(255);
-  b = random(255);
+  createCanvas(window.innerWidth, window.innerHeight);
+  background(0);
+  centerX = width / 2;
+  centerY = height / 2;
+  radius = height / 2;
+  angleMode(DEGREES);
 }
 
-/** 
-You always need a draw function in p5.js.
-Right after setup(), gets executed, this gets called continuously 
-in the background. You can think of this function as 
-your primary animation loop––each "frame" of your sketch.
-**/
 function draw() {
-  fill(170);
-  for (var n = 0; n < count; n++) {
-    rect(xCoords[n] * n, yCoords[n], 50, 50);
-    yCoords[n] = (yCoords[n] + speeds[n]) % height;
+  noFill();
+  stroke(255, 25);
+  beginShape();
+  for (var i = 0; i <= totalDegrees; i++) {
+    var noiseFactor = noise(i / 35, frameCount / 60);
+    var x = centerX + radius * cos(i) * noiseFactor;
+    var y = centerY + radius * sin(i) * noiseFactor;
+    curveVertex(x, y);
   }
-  background(128, 100);
+  endShape();
+  radius -= 0.6
+
+  if (radius <= 0) {
+    noLoop();
+  }
 }
